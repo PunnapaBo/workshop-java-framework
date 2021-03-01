@@ -15,6 +15,15 @@ public class KbtgApplication {
 			System.out.println(beanDefinitionName);
 		}
 		System.out.println(context.getBeanDefinitionCount());
+
+		User user1 = context.getBean(User.class);
+		user1.setName("AAA");
+
+		User user2 = context.getBean(User.class);
+		user2.setName("BBB");
+
+		System.out.println(user1.getName());
+		System.out.println(user2.getName());
 	}
 
 }

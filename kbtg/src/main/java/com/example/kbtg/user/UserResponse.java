@@ -1,14 +1,13 @@
 package com.example.kbtg.user;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Objects;
 
-@Data
+//@Data
 @Getter
+@EqualsAndHashCode
+@ToString
 public class UserResponse {
     private Integer id;
     private String name;

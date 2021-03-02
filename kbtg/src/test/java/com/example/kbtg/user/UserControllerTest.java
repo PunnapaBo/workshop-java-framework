@@ -5,8 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -24,5 +23,13 @@ public class UserControllerTest {
 
         UserResponse expected = new UserResponse(1, "punnapa", 23);
         assertEquals(expected,response);
+    }
+
+    @Test
+    public void fail_get_user_1(){
+//        UserResponse response = ;
+        assertThrows(RuntimeException.class, () -> {
+            testRestTemplate.getForObject("/user/11",UserResponse.class);
+        });
     }
 }

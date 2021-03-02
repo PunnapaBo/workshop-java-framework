@@ -12,7 +12,8 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/user/{id}")
-    public UserResponse getUserBy(@PathVariable("id") int id){
+    public UserResponse getUserBy(@PathVariable("id") int id) {
+//        UserControllerAdvice
         return userService.getInfo(id);
     }
 }

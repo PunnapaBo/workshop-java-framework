@@ -32,4 +32,11 @@ public class UserControllerTest {
             testRestTemplate.getForObject("/user/11",UserResponse.class);
         });
     }
+
+    @Test
+    public void user_not_found_with_user_id_15() {
+        ErrorResponse errorExpected = new ErrorResponse(1234,"User not found id=15");
+        ErrorResponse errorActual = testRestTemplate.getForObject("/user/15",ErrorResponse.class);
+        assertEquals(errorExpected,errorActual);
+    }
 }
